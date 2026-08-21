@@ -1,0 +1,10 @@
+# 
+
+# user and group: It runs PHP as www-data, which is the standard, secure Linux user for web files.
+# listen = 9000: This is the magic line. It completely disables the local Unix socket and forces the kitchen to accept orders from the network on Port 9000 (which perfectly matches the fastcgi_pass wordpress:9000; line you wrote for NGINX days ago!).
+# pm = dynamic...: These are process manager rules. It basically tells the kitchen how many chefs (processes) to keep on standby depending on how much traffic your website gets.
+
+
+# php-fpm is the engin that execute the php website 
+
+# Download WP-CLI, give it permissions, and move it to the binaries folder
