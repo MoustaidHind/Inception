@@ -30,6 +30,9 @@ wp-cli core install --url=https://localhost \
 # 5. Create a standard, non-admin user (This is a strict requirement for the project!)
 wp-cli user create ${WP_USER} ${WP_USER_EMAIL} --user_pass=${WP_USER_PASSWORD} --role=author --allow-root
 
+wp-cli theme install twentytwentyfour --activate --path=/var/www/wordpress --allow-root
+#wp-cli theme activate twentysixteen
+
 # 6. PHP-FPM needs this specific folder to exist so it can manage its processes
 mkdir -p /run/php
 
