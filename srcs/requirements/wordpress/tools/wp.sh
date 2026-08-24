@@ -18,6 +18,12 @@ wp-cli config create --dbname=${SQL_DATABASE} \
                  --dbhost=mariadb \
                  --allow-root
 
+# --- ADD REDIS CONFIGURATION HERE ---
+# These commands safely inject the constants into the newly created wp-config.php
+wp-cli config set WP_REDIS_HOST redis --allow-root
+wp-cli config set WP_REDIS_PORT 6379 --raw --allow-root
+# ------------------------------------
+
 # 4. Install WordPress and set up the Admin account
 #--url=himousta.42.fr \
 wp-cli core install --url=https://localhost \
@@ -35,6 +41,10 @@ wp-cli theme install twentytwentyfour --activate --path=/var/www/wordpress --all
 
 # 6. PHP-FPM needs this specific folder to exist so it can manage its processes
 mkdir -p /run/php
+
+# 6. Enable Redis Cache
+wp-cli plugin install redis-cache --activate --allow-root
+wp-cli redis enable --allow-root
 
 # 7. Turn on the Kitchen in the foreground so the container stays alive
 exec /usr/sbin/php-fpm7.4 -F

@@ -36,6 +36,15 @@ services:
     volumes:
       - wordpress_data:/var/www/wordpress
 
+  redis:
+    build: ./requirements/bonus/redis
+    container_name: redis
+    restart: always
+    expose:
+      - "6379"
+    networks:
+      - inception
+
 networks:
   inception:
     driver: bridge
