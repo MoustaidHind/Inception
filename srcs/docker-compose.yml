@@ -56,6 +56,16 @@ services:
     networks:
       - inception
 
+  website:
+    build: ./requirements/bonus/website
+    container_name: website
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - inception
+
+
 networks:
   inception:
     driver: bridge
