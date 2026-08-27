@@ -72,6 +72,16 @@ services:
     networks:
       - inception
 
+  portainer:
+      build: ./requirements/bonus/portainer
+      container_name: portainer
+      restart: always
+      ports:
+        - "9443:9443"
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+      networks:
+        - inception
 
 networks:
   inception:
