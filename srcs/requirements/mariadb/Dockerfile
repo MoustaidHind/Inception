@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:bookworm
 RUN apt update && apt install -y mariadb-server
 COPY conf/mariadb.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY tools/DataBase.sh /DataBase.sh

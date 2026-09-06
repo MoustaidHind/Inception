@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:bookworm
 
 # Install tools to fetch and extract the binary
 RUN apt-get update && apt-get install -y wget tar

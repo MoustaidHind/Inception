@@ -47,4 +47,4 @@ wp-cli plugin install redis-cache --activate --allow-root
 wp-cli redis enable --allow-root
 
 # 7. Turn on the Kitchen in the foreground so the container stays alive
-exec /usr/sbin/php-fpm7.4 -F
+exec /usr/sbin/php-fpm8.2 -F
