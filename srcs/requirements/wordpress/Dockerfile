@@ -9,4 +9,4 @@ COPY conf/wordpress.conf /etc/php/8.2/fpm/pool.d/wordpress.conf
 COPY tools/wp.sh /wp.sh
 RUN chmod +x /wp.sh
 
-CMD ["/wp.sh"]
+ENTRYPOINT ["/wp.sh"]

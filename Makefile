@@ -23,8 +23,8 @@ clean: down
 
 # not the right path to delete the data volumes.
 fclean: clean
-	sudo rm -rf /home/hmoustaid/data/mariadb 
-	sudo rm -rf /home/hmoustaid/data/wordpress
+	sudo rm -rf /home/${USER}/data/mariadb 
+	sudo rm -rf /home/${USER}/data/wordpress
 	docker volume prune -f
 	docker network prune -f
 
@@ -35,7 +35,7 @@ re: fclean all
 
 # NAME = inception
 # COMPOSE = ./srcs/docker-compose.yml
-# DATA_PATH = /home/himousta/data
+# DATA_PATH = /home/${USER}/data
 
 # all: build up
 

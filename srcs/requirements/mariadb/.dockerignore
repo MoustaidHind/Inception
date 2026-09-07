@@ -1,5 +1,0 @@
-
-# user & datadir: These are standard Linux defaults, 
-# It tells MariaDB to run as the secure mysql system user and store the actual data files in /var/lib/mysql.
-
-# INI Format
