@@ -4,6 +4,9 @@ services:
     container_name: mariadb
     restart: always
     env_file: .env
+    secrets:
+      - db_password
+      - db_root_password
     networks:
       - inception
     volumes:
@@ -14,6 +17,10 @@ services:
     container_name: wordpress
     restart: always
     env_file: .env
+    secrets:
+      - db_password
+      - credentials
+      - wp_user_password
     depends_on:
       - mariadb
     networks:
@@ -89,4 +96,27 @@ networks:
 
 volumes:
   mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/himousta/data/mariadb
+
   wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/himousta/data/wordpress
+
+secrets:
+  db_password:
+    file: ../secrets/db_password.txt
+  db_root_password:
+    file: ../secrets/db_root_password.txt
+  credentials:
+    file: ../secrets/credentials.txt
+  ftp_password:
+    file: ../secrets/ftp_password.txt
+  wp_user_password:
+    file: ../secrets/wp_user_password.txt

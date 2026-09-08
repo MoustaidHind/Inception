@@ -1,5 +1,9 @@
 #!/bin/bash
 
+DB_PASS=$(cat /run/secrets/db_password)
+ADMIN_PASS=$(cat /run/secrets/credentials)
+WP_USER_PASSWORD=$(cat /run/secrets/wp_user_password)
+
 # 1. Create the folder where NGINX will look for the website
 mkdir -p /var/www/wordpress
 cd /var/www/wordpress
@@ -13,7 +17,7 @@ sleep 10
 # 3. Create the wp-config.php file to connect to the db
 wp-cli config create --dbname=${SQL_DATABASE} \
                  --dbuser=${SQL_USER} \
-                 --dbpass=${SQL_PASSWORD} \
+                 --dbpass=${DB_PASS} \
                  --dbhost=mariadb \
                  --allow-root
 
@@ -26,7 +30,7 @@ wp-cli config set WP_REDIS_PORT 6379 --raw --allow-root
 wp-cli core install --url=https://himousta.42.fr \
                 --title="Inception" \
                 --admin_user=${WP_ADMIN_USER} \
-                --admin_password=${WP_ADMIN_PASSWORD} \
+                --admin_password=${ADMIN_PASS} \
                 --admin_email=${WP_ADMIN_EMAIL} \
                 --allow-root
 
