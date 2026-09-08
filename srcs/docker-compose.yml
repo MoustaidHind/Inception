@@ -55,6 +55,8 @@ services:
     container_name: ftp
     restart: always
     env_file: .env
+    secrets:
+      - ftp_password
     ports:
       - "21:21"
       - "40000-40100:40000-40100"
