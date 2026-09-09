@@ -13,7 +13,6 @@ mariadb -e "FLUSH PRIVILEGES;"
 mariadb -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_ROOT_PASS}';"
 mariadb -e "FLUSH PRIVILEGES;"
 
-# 5. Shut down the temporary background server using the new root password
 mysqladmin -u root -p"${DB_ROOT_PASS}" shutdown
 
 exec mysqld_safe

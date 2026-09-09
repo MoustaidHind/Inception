@@ -5,7 +5,13 @@ To replicate this environment on a new machine:
 1. **Prerequisites:** Ensure `docker`, `docker-compose`, and `make` are installed on the host OS.
 2. **Domain Mapping:** Add `127.0.0.1 himousta.42.fr` to the host's `/etc/hosts` file.
 3. **Data Directories:** The `Makefile` will attempt to create `/home/himousta/data/wordpress` and `/home/himousta/data/mariadb`. Ensure the host user has permissions for `/home/himousta/`.
-4. **Secrets Configuration:** You must manually create the `secrets/` folder in the root directory. Inside it, use `echo -n "password" > filename.txt` to create the required secret files for both core and bonus services.
+4. **Secrets Configuration:** You must manually create a `secrets/` folder in the root directory of the project. Inside this folder, you must create five specific text files to securely store your passwords. Use the command `echo -n "your_password" > filename.txt` to generate them *(the `-n` flag is strictly required to prevent invisible newline characters from breaking the logins)*. 
+   You must create the following exact files:
+   - `db_password.txt` *(MariaDB standard user password)*
+   - `db_root_password.txt` *(MariaDB root password)*
+   - `credentials.txt` *(WordPress Admin password)*
+   - `wp_user_password.txt` *(WordPress Author password)*
+   - `ftp_password.txt` *(FTP Bonus password)*
 
 ## Building and Launching (Makefile)
 The `Makefile` acts as a wrapper for Docker Compose.

@@ -6,7 +6,6 @@ FTP_PWD=$(cat /run/secrets/ftp_password)
 # 1. Create the user
 # -m -d /var/www/wordpress: Sets their home directory directly to the WordPress volume
 # -s /bin/bash: Gives them a standard shell
-# (Errors hidden to keep logs clean during Docker restarts)
 useradd -m -d /var/www/wordpress -s /bin/bash $FTP_USR 2>/dev/null
 
 # 2. Set the password

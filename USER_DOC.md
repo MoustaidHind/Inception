@@ -17,11 +17,12 @@ All management is handled via the provided `Makefile` at the root of the project
 - **To safely stop everything:** Run `make down`. This stops the services without deleting your data.
 
 ## Accessing the Web Services
-- **Main Website:** Navigate to `https://himousta.42.fr`. (Your browser may warn you about a self-signed certificate; this is expected).
-- **Administration Panel:** Navigate to `https://himousta.42.fr/wp-admin`. 
-- **Static Website:** Accessible via the secondary port/route configured in NGINX.
-- **Adminer & Portainer:** Accessible via their respective NGINX routes or exposed ports depending on the Docker Compose configuration.
-
+- **Main Website:** `https://himousta.42.fr` *(Your browser may warn you about a self-signed certificate; this is expected).*
+- **WordPress Administration Panel:** `https://himousta.42.fr/wp-admin`
+- **Static Website (Bonus):** `http://himousta.42.fr:3000` *(Accessed directly via HTTP on its exposed port).*
+- **Adminer (Bonus):** `https://himousta.42.fr/adminer` *(Note: If you did not configure an NGINX route and used a direct port instead, use `http://himousta.42.fr:8080`).*
+- **Portainer (Bonus):** `https://himousta.42.fr:9443` 
+- **FTP Server (Bonus):** Connect via an FTP client (like FileZilla) using Host: `himousta.42.fr`, Port: `21`.
 ## Locating and Managing Credentials
 For security reasons, no passwords are hardcoded into the project files. 
 - General configuration (usernames, database names, emails) is stored in the `.env` file located in `srcs/`.

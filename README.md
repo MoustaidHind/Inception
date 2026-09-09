@@ -40,7 +40,7 @@ Clone the repository and ensure your host machine has the required data director
 `mkdir -p /home/himousta/data/wordpress`
 
 Create a `secrets/` directory at the root of the project and populate it with the necessary password text files (e.g., `db_password.txt`, `credentials.txt`, `ftp_password.txt`). 
-*(Note: Do not push this folder to Git!)*
+
 
 ### 3. Execution
 Navigate to the root of the project and build/launch the infrastructure in the background:
