@@ -8,5 +8,4 @@ RUN wget https://github.com/portainer/portainer/releases/download/2.19.4/portain
     && tar -xvf portainer.tar.gz \
     && rm portainer.tar.gz
 
-# Execute the binary in the foreground
-CMD ["/portainer/portainer"]
+ENTRYPOINT ["/portainer/portainer"]
